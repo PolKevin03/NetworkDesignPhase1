@@ -1,4 +1,4 @@
-# Network Design Project – Team ____
+# Network Design Project – Team __Unknown Right Now__
 
 <!-- Optional: add badges if you want -->
 <!-- ![language](https://img.shields.io/badge/language-python-blue) -->
@@ -10,7 +10,7 @@ mechanisms and performance evaluation.
 ## Team
 | Name | Email | Primary responsibility |
 |---|---|---|
-|  |  |  |
+| Kevin Pol | Kevin_Pol@student.uml.edu |  |
 |  |  |  |
 |  |  |  |
 
