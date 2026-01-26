@@ -1,4 +1,4 @@
-# Network Design Project – Phase Proposal & Design Document (Phase __ of 5)
+# Network Design Project – Phase Proposal & Design Document (Phase _1_ of 5)
 
 > **Purpose:** This document is your team’s *proposal* for how you will implement the current phase **before** you start coding.  
 > Keep it clear, concrete, and lightweight.
@@ -213,7 +213,7 @@ on packet receive:
   else: handle duplicate/out-of-order according to phase rules
 ```
 
-### 6.3 Error/loss injection spec (if required by phase) N/A No error and loss
+### 6.3 Error/loss injection spec (if required by phase) N/A not in Phase 1
 If the phase requires injection, state:
 - where injection occurs in the pipeline (exact point)
 - probability model and RNG seed usage
