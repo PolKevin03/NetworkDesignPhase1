@@ -8,13 +8,13 @@
 **GitHub Repo URL (with GitHub usernames):** https://github.com/PolKevin03/NetworkDesignPhase1.git  
 **Phase:** (1)  
 **Submission Date:** 1/26/2026
-**Version:** (v1)
+**Version:** (V2)
 
 ---
 
 ## 0) Executive summary
 In **5–8 sentences**, describe what you are adding/creating in *this* phase, what “done” means, and how you’ll validate it (demo + tests + figures).
-During Phase 1 the process of building a UDP client and the server in Python. Starting, the client will send a message of Hello and the server will state the same message back. After I will open the program to transfer a file over UDP using the RDT 1.0 protocol. After the phase will go through checking the program output and seeing if its the same as the client wrote. 
+ In phase 1, I created a UDP client and server using python. First by having the echo or repeat transfer of the message Hello and this will work wwhile the server will send the same message. After I build the simple file transfer program using RDT 1.0. This occurs by the client reading a BMP file and the small chunks will go through the server for an ACk before sending the next one. The server will grab the data and write it in the explorer as a another file which matches the file sent.
 
 ---
 
@@ -31,8 +31,8 @@ Fill in the scenarios required by the phase spec.
 
 | Scenario | What you will inject / configure | Expected observable behavior | What we will see in the video |
 |---|---|---|---|
-| 1 | Sends "HELLO" | Server says "HELLO" back | Prints the message stated before |
-| 2 | Sends File | Server gets and save the file | File transfer output and the saved file |
+| 1 | Client Sends "HELLO" | Server says "HELLO" back/ECHOS | Prints the message stated before |
+| 2 | Client Sends BMP File | Server gets and save the file | File transfer output and the saved file |
 | 3 | N/A | N/A | N/A |
 
 ### 1.3 Required figures / plots
@@ -56,9 +56,10 @@ Think of this as a short “implementation proposal” you’d write at a compan
 ### 2.2 Acceptance criteria (your checklist)
 List 5–10 measurable checks that mean you’re done (examples below).
 
-- [ ] UDP client and the server run host 
+- [ ] UDP echo client sends "HELLO" and receives the same message back
 - [ ] Client sends message and server echo back
-- [ ] File transfered to UDP
+- [ ] File transfer client sends a BMP file over UDP
+- [ ]  File transfer server saves the received file as recieved bmp
 - [ ] Gets the file and match the original file
 - [ ] Record the demo and scenarios
 
@@ -115,11 +116,12 @@ Define your on-the-wire format **unambiguously**.
 List the packet types you will send:
 - Data packet
 - ACK packet
-- (Optional) end-of-transfer marker / metadata packet
+- End transfer packet will say END
 
 ### 4.2 Header fields (this is the “field table”)
 **What this means:** you must specify the *exact* fields in each packet header and their meaning.  
-This ensures everyone can encode/decode packets consistently.
+This ensures everyone can encode/decode packets consistently. Packets are just the file data being sent along with simple control messages like “END.”
+This basic setup lets the sender send one chunk at a time and wait for a response, and it will be improved in later phases.
 
 | Field | Size (bytes/bits) | Type | Description | Notes |
 |---|---:|---|---|---|
@@ -175,11 +177,11 @@ This section is your “engineering spec” that you implement against. Keep it 
 
 ### 6.1 Sender behavior
 Describe behavior as steps or a state machine:
-- Read input message
-- Has files in fixed size sizes
-- Assign a sequence number for each packet
-- Waits for ACk with the matching sequence number
-- Send the next packet after grabbing ACK
+- Read input message or file
+- Split file into small chunks
+- Send one chunk at a time over UDP
+- Wait for ACK before sending the next chunk
+- Send END message when file transfer is complete
 
 
 **Sender pseudocode (recommended):**
@@ -197,13 +199,12 @@ while not done:
 
 ### 6.2 Receiver behavior
 Describe receiver rules:
-- Listen to UDP port
-- Receives the data packets from sender
-- Check sequence number
-- Write the output file or packet
-- Send ACK back to sender
-- Finish packet in order
-- Delete after everything done
+- Listen on UDP port
+- Grabs data packets from sender
+- Prints the received data to output file
+- Send ACK for each received packet
+- Send END message and deletes
+
 
 **Receiver pseudocode (recommended):**
 ```text
@@ -287,7 +288,7 @@ State where phase artifacts live:
 
 ---
 
-## 10) Team plan, ownership, and milestones 
+## 10) Team plan, ownership, and milestones V@
 ### 10.1 Task ownership
 | Task | Owner | Target date | Definition of done |
 |---|---|---|---|
