@@ -1,4 +1,4 @@
-# Network Design Project – Phase Proposal & Design Document (Phase __ of 5)
+# Network Design Project – Phase Proposal & Design Document (Phase _1_ of 5) V2
 
 > **Purpose:** This document is your team’s *proposal* for how you will implement the current phase **before** you start coding.  
 > Keep it clear, concrete, and lightweight.
