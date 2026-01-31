@@ -307,3 +307,4 @@ State where phase artifacts live:
 ---
 
 ## Appendix (optional)
+https://people.math.sc.edu/Burkardt/data/bmp/bmp.html bmp picture link
