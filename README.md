@@ -1,4 +1,4 @@
-# Network Design Project – Team __Unknown Right Now__
+# Network Design Project – Team ____
 
 <!-- Optional: add badges if you want -->
 <!-- ![language](https://img.shields.io/badge/language-python-blue) -->
@@ -9,15 +9,16 @@ mechanisms and performance evaluation.
 
 ## Team
 | Name | Email | Primary responsibility |
-|---|---|---|
-| Kevin Pol | Kevin_Pol@student.uml.edu |  |
+|Kevin Pol|Kevin_Pol@student.uml.edu|Echo/message back, file transfer, testing and fixing|
+|  |  |  |
 |  |  |  |
 |  |  |  |
 
 ## Demo Video (submission)
-- **Private YouTube link:** *(submit via Blackboard)*  
+- **Private YouTube link:** *(submit via Blackboard)*   youtube.com/watch?v=YZIItVEGag8&feature=youtu.be
 - **Timestamped outline:** *(mm:ss → scenario)*
-
+-00:00-00:19 echo demo
+-00:23-00:59 file transfer
 ---
 
 ## Repository Structure (required)
@@ -86,7 +87,7 @@ python src/receiver.py --port 9000 --out results/received.bin --seed 0
 
 ### Run Sender
 ```bash
-python src/sender.py --host 127.0.0.1 --port 9000 --file data/sample.jpg --seed 0
+python src/sender.py --host 127.0.0.1 --port 9000 --file data/sample.jpg --seed 0 #used localhost
 ```
 
 ---
@@ -94,24 +95,30 @@ python src/sender.py --host 127.0.0.1 --port 9000 --file data/sample.jpg --seed 
 ## Required Demo Scenarios (Current Phase)
 Provide the exact commands used to demonstrate each required scenario.
 
-### Scenario 1: __________
+### Scenario 1: ____Echo/Repeated Message______
 Receiver:
 ```bash
-...
+python src/server_echo.py
 ```
 Sender:
 ```bash
-...
+python src/client_echo.py
 ```
 Expected behavior:
-- ...
+- Prints hello back
 
-### Scenario 2: __________
-...
-
+### Scenario 2: ____Save and file transfer copy______
+Receiver:
+```bash
+python src/server_file.py
+Sender:
+```bash
+python src/client_file.py inputfile/bmp_24.bmp
+Expected behavior:
+- Saves and make file with original image
 ---
 
-## Figures / Plots (if required by phase)
+## Figures / Plots (if required by phase) N/A
 ### Reproduce experiment runs
 Your repo must include a script that can reproduce required sweeps and output CSV.
 
@@ -134,8 +141,12 @@ python scripts/plot_results.py --in results/phase4.csv --out results/phase4.png
 
 ## Known Issues / Limitations
 List any limitations honestly.
-
+- The inditation issue was issue bad since I was used to c
+- The bmp file would create a new file and match but the file outside the result folder.
+- file path was not found due to incorrect input in the terminal where I had to use a path and it worked
+- tried using docx file but it didn't work from printing a blank document then switched to bmp and it worked.
 ---
 
 ## Academic Integrity / External Tools
 Debugging tools (IDE debugger, logging) and LLMs may be used for learning and troubleshooting. Final implementation decisions and understanding are our own.
+Phase 1 slides
